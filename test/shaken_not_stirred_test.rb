@@ -131,12 +131,14 @@ describe ShakenNotStirred do
 
   describe "#categories" do
     it "should set URL properly" do
+      @filter.categories
       @filter.url.must_equal "#{ShakenNotStirred::BASE_URL}/categories?"
     end
   end
 
   describe "#ingredients" do
     it "should set URL properly" do
+      @filter.ingredients
       @filter.url.must_equal "#{ShakenNotStirred::BASE_URL}/ingredients?"
     end
   end

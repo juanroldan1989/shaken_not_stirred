@@ -2,7 +2,7 @@
 
 ### Added
 * Test suite files.
-* Possible gem icons.
+* Main & Configuration modules added.
 * Coveralls and Travis config files.
 * README setup with basic structure.
 * LICENSE file.

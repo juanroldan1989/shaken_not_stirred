@@ -36,7 +36,7 @@ gem install shaken_not_stirred
 or put it in your Gemfile and run `bundle install`:
 
 ```ruby
-gem "shaken_not_stirred", "~> 0.0.1"
+gem "shaken_not_stirred", "~> 0.0.7"
 ```
 
 ## 1. Usage

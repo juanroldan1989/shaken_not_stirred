@@ -90,13 +90,15 @@ class ShakenNotStirred
   end
 
   def categories
-    resource = "categories"
+    @resource = "categories"
+    @results = []
 
     self
   end
 
   def ingredients
-    resource = "ingredients"
+    @resource = "ingredients"
+    @results = []
 
     self
   end
@@ -106,7 +108,7 @@ class ShakenNotStirred
   end
 
   def url
-    "#{BASE_URL}/#{resource}?#{get_filters}"
+    "#{BASE_URL}/#{@resource}?#{get_filters}"
   end
 
   private
