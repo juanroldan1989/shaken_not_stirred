@@ -3,7 +3,7 @@ Coveralls.wear!
 
 require "minitest/spec"
 require "minitest/autorun"
-require "movie_quotes"
+require "shaken_not_stirred"
 
 require "vcr"
 

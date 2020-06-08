@@ -5,10 +5,10 @@ class ShakenNotStirred
   include HTTParty
 
   # testing purposes
-  BASE_URL = "http://localhost:3000/api/v1/".freeze
-  # BASE_URL = "https://api-cocktails.herokuapp.com/api/v1/".freeze
+  BASE_URL = "http://localhost:3000/api/v1".freeze
+  # BASE_URL = "https://api-cocktails.herokuapp.com/api/v1".freeze
 
-  attr_reader :filters, :resource
+  attr_accessor :filters, :resource
 
   class << self
     attr_accessor :configuration
@@ -90,13 +90,13 @@ class ShakenNotStirred
   end
 
   def categories
-    @resource = "categories"
+    resource = "categories"
 
     self
   end
 
   def ingredients
-    @resource = "ingredients"
+    resource = "ingredients"
 
     self
   end

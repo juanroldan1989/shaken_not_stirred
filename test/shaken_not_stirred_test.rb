@@ -19,8 +19,12 @@ describe ShakenNotStirred do
     @filter.filters.must_equal({})
   end
 
-  it "should allow to see current URL" do
-    @filter.url.must_equal "#{ShakenNotStirred::BASE_URL}/cocktails?"
+  describe "#url" do
+    describe "by default" do
+      it "should allow to see default URL" do
+        @filter.url.must_equal "#{ShakenNotStirred::BASE_URL}/cocktails?"
+      end
+    end
   end
 
   describe "#by_name" do
@@ -77,14 +81,14 @@ describe ShakenNotStirred do
   end
 
   describe "#by_iba" do
-    context "with string value" do
+    describe "with string value" do
       it "should contain 'iba' param inside URL" do
         @filter.by_iba("true")
         @filter.url.must_include "iba=true"
       end
     end
 
-    context "with boolean value" do
+    describe "with boolean value" do
       it "should contain 'iba' param inside URL" do
         @filter.by_iba(true)
         @filter.url.must_include "iba=true"
@@ -94,8 +98,8 @@ describe ShakenNotStirred do
 
   describe "#by_rating" do
     it "should contain 'rating' param inside URL" do
-      @filter.by_rating(5)
-      @filter.url.must_include "rating=5"
+      @filter.by_rating(8)
+      @filter.url.must_include "rating=8"
     end
   end
 
@@ -120,13 +124,24 @@ describe ShakenNotStirred do
     end
 
     it "should contain 'random' param inside URL" do
-      @filter.by_random(5)
-      @filter.url.must_include "random=5"
+      @filter.by_random(4)
+      @filter.url.must_include "random=4"
+    end
+  end
+
+  describe "#categories" do
+    it "should set URL properly" do
+      @filter.url.must_equal "#{ShakenNotStirred::BASE_URL}/categories?"
+    end
+  end
+
+  describe "#ingredients" do
+    it "should set URL properly" do
+      @filter.url.must_equal "#{ShakenNotStirred::BASE_URL}/ingredients?"
     end
   end
 
   describe "#results" do
-
     describe "with valid api_key" do
       before do
         ShakenNotStirred.configure do |config|
@@ -135,6 +150,7 @@ describe ShakenNotStirred do
       end
 
       it "should return an array of 'Cocktail' JSON objects" do
+        # 
       end
     end
 
@@ -146,6 +162,7 @@ describe ShakenNotStirred do
       end
 
       it "should return error message" do
+        # 
       end
     end
   end
