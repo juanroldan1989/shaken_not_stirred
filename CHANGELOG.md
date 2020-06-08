@@ -1,4 +1,9 @@
-## [v0.0.7] - 2020-06-10
+## [v0.0.7] - 2020-06-08
+
+### Added
+* Ruby gem released !
+
+## [v0.0.7] - 2020-06-05
 
 ### Added
 * Test suite files.

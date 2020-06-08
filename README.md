@@ -40,7 +40,7 @@ gem "shaken_not_stirred", "~> 0.0.7"
 
 All `Free`, `Basic`, `Advanced` and `Premium` plans available [here](https://juanroldan.com.ar/cocktails-api-landing)
 
-Once completed this quick [form](https://docs.google.com/forms/d/e/1FAIpQLSeavfLgmnF2haKsaNlp8hYA4DSqdwb1ZMg5Xse7a-mFW4bZIg/viewform) the API Key will be sent to you by Juan Roldan (`juanroldan1989@gmail.com`)
+Once completed this quick [form](https://docs.google.com/forms/d/12Ofvx3wg3fIwiS2u41JAv5CNtIExjenU7KVpqyIwMi8/viewform) the API Key will be sent to you by Juan Roldan (`juanroldan1989@gmail.com`)
 
 Setup the API Key within an initializer:
 

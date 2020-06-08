@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     shaken_not_stirred (0.0.7)
-      httparty (~> 0.15.5)
+      httparty (~> 0.15.7)
 
 GEM
   remote: https://rubygems.org/
@@ -50,8 +50,8 @@ DEPENDENCIES
   coveralls (~> 0.8.23)
   rake (~> 13.0.1)
   shaken_not_stirred!
-  vcr (~> 3.0.3)
-  webmock (~> 2.3.2)
+  vcr (~> 3.0, >= 3.0.3)
+  webmock (~> 2.3, >= 2.3.2)
 
 BUNDLED WITH
    1.17.3

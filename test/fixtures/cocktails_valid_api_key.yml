@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Token token="O3j5w27b2rhOqSZk8pBPSgtt"
+      - Token token="valid_api_key"
   response:
     status:
       code: 200
