@@ -5,8 +5,8 @@ class ShakenNotStirred
   include HTTParty
 
   # testing purposes
-  BASE_URL = "http://localhost:3000/api/v1".freeze
-  # BASE_URL = "https://api-cocktails.herokuapp.com/api/v1".freeze
+  # BASE_URL = "http://localhost:3000/api/v1".freeze
+  BASE_URL = "https://api-cocktails.herokuapp.com/api/v1".freeze
 
   attr_accessor :filters, :resource
 

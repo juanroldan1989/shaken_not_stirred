@@ -152,7 +152,25 @@ describe ShakenNotStirred do
       end
 
       it "should return an array of 'Cocktail' JSON objects" do
-        # 
+        VCR.use_cassette("cocktails_valid_api_key") do
+          cocktails = @filter.by_name('vodka').results
+          cocktail  = cocktails.first
+
+          cocktail["name"].must_equal               "Vodka Martini"
+          cocktail["description"].must_equal        "A vodka martini, also known as a vodkatini or kangaroo cocktail, is a cocktail made with vodka and vermouth, a variation of a martini. A vodka martini is made by combining vodka, dry vermouth and ice in a cocktail shaker or mixing glass. The ingredients are chilled, either by stirring or shaking, then strained and served \"straight up\" (without ice) in a chilled cocktail glass.  The drink may be garnished with an olive, a \"twist\" (a strip of lemon peel squeezed or twisted), capers, or cocktail onions (with the onion garnish specifically yielding a vodka Gibson). The vodka martini has become a common and popular cocktail. Some purists maintain that, while it is a perfectly fine drink, it is not a true martini; which is traditionally made with gin."
+          cocktail["ingredients"].must_equal        ["6 cl (6 parts) vodka", "1 cl (1 parts) dry vermouth"]
+          cocktail["categories"].must_equal         ["Cocktails with vodka"]
+          cocktail["preparation"].must_equal        "Straight: Pour all ingredients into mixing glass with ice cubes. Shake well. Strain in chilled martini cocktail glass. Squeeze oil from lemon peel onto the drink, or garnish with olive."
+          cocktail["served"].must_equal             "On the rocks"
+          cocktail["standard_drinkware"].must_equal "cocktail"
+          cocktail["standard_garnish"].must_equal   "olive (fruit)|Olive or lemon twist"
+          cocktail["timing"].must_equal             "All day"
+          cocktail["iba"].must_equal                false
+          cocktail["rating"].must_equal             9
+          cocktail["image_thumb_url"].must_equal    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Vodka_Martini%2C_Macaroni_Grill%2C_Dunwoody_GA.jpg/200px-Vodka_Martini%2C_Macaroni_Grill%2C_Dunwoody_GA.jpg"
+          cocktail["image_large_url"].must_equal    "https://upload.wikimedia.org/wikipedia/commons/9/92/Vodka_Martini%2C_Macaroni_Grill%2C_Dunwoody_GA.jpg"
+          cocktail["video_url"].must_equal          "https://www.youtube.com/watch?v=8SMZ_g044To"
+        end
       end
     end
 
@@ -164,7 +182,12 @@ describe ShakenNotStirred do
       end
 
       it "should return error message" do
-        # 
+        VCR.use_cassette("cocktails_invalid_api_key") do
+          cocktails = @filter.results
+
+          cocktails["status"].must_equal  "error"
+          cocktails["message"].must_equal "Bad credentials"
+        end
       end
     end
   end

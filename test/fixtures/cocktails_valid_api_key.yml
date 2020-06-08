@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-cocktails.herokuapp.com/api/v1/cocktails?name=vodka
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Token token="O3j5w27b2rhOqSZk8pBPSgtt"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 08 Jun 2020 19:41:49 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"d2af0fff94a82b3efd6c7b1e94c10709"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8a0fdc3e-8ccf-4ac3-bd25-82f08579b614
+      X-Runtime:
+      - '0.014004'
+      Vary:
+      - Origin
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '[{"id":270,"name":"Vodka Martini","description":"A vodka martini, also
+        known as a vodkatini or kangaroo cocktail, is a cocktail made with vodka and
+        vermouth, a variation of a martini. A vodka martini is made by combining vodka,
+        dry vermouth and ice in a cocktail shaker or mixing glass. The ingredients
+        are chilled, either by stirring or shaking, then strained and served \"straight
+        up\" (without ice) in a chilled cocktail glass.  The drink may be garnished
+        with an olive, a \"twist\" (a strip of lemon peel squeezed or twisted), capers,
+        or cocktail onions (with the onion garnish specifically yielding a vodka Gibson).
+        The vodka martini has become a common and popular cocktail. Some purists maintain
+        that, while it is a perfectly fine drink, it is not a true martini; which
+        is traditionally made with gin.","ingredients":["6 cl (6 parts) vodka","1
+        cl (1 parts) dry vermouth"],"categories":["Cocktails with vodka"],"preparation":"Straight:
+        Pour all ingredients into mixing glass with ice cubes. Shake well. Strain
+        in chilled martini cocktail glass. Squeeze oil from lemon peel onto the drink,
+        or garnish with olive.","served":"On the rocks","standard_drinkware":"cocktail","standard_garnish":"olive
+        (fruit)|Olive or lemon twist","timing":"All day","iba":false,"rating":9,"image_thumb_url":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Vodka_Martini%2C_Macaroni_Grill%2C_Dunwoody_GA.jpg/200px-Vodka_Martini%2C_Macaroni_Grill%2C_Dunwoody_GA.jpg","image_large_url":"https://upload.wikimedia.org/wikipedia/commons/9/92/Vodka_Martini%2C_Macaroni_Grill%2C_Dunwoody_GA.jpg","video_url":"https://www.youtube.com/watch?v=8SMZ_g044To"}]'
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 19:41:50 GMT
+recorded_with: VCR 3.0.3

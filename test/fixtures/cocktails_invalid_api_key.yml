@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-cocktails.herokuapp.com/api/v1/cocktails
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Token token="invalid_api_key"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 08 Jun 2020 19:41:48 GMT
+      Connection:
+      - keep-alive
+      Www-Authenticate:
+      - Token realm="Application"
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 6d23bb23-f6fb-47e3-806c-03d0466d4f6a
+      X-Runtime:
+      - '0.004574'
+      Vary:
+      - Origin
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"status":"error","message":"Bad credentials"}'
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 19:41:49 GMT
+recorded_with: VCR 3.0.3
