@@ -5,7 +5,7 @@
 # ShakenNotStirred
 [![Gem Version](https://badge.fury.io/rb/shaken_not_stirred.svg)](https://badge.fury.io/rb/shaken_not_stirred)
 [![Code Climate](https://codeclimate.com/github/juanroldan1989/shaken_not_stirred/badges/gpa.svg)](https://codeclimate.com/github/juanroldan1989/shaken_not_stirred)
-[![Build Status](https://travis-ci.org/juanroldan1989/shaken_not_stirred.svg?branch=master)](https://travis-ci.org/juanroldan1989/shaken_not_stirred)
+[![Build Status](https://travis-ci.com/juanroldan1989/shaken_not_stirred.svg?branch=master)](https://travis-ci.com/juanroldan1989/shaken_not_stirred)
 [![Coverage Status](https://coveralls.io/repos/github/juanroldan1989/shaken_not_stirred/badge.svg?branch=master)](https://coveralls.io/github/juanroldan1989/shaken_not_stirred?branch=master)
 [![Downloads](http://ruby-gem-downloads-badge.herokuapp.com/shaken_not_stirred/0.1.3?type=total&color=brightgreen)](https://rubygems.org/gems/shaken_not_stirred)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
