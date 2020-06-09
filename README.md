@@ -206,7 +206,39 @@ filter.ingredients.by_page(5)
 filter.results
 ```
 
-## 2. Response
+## 2. Implementation
+Setting up this gem to work is really easy. Even more if you use `has_scope` gem:
+
+```ruby
+class CocktailsController < ApplicationController
+
+  has_scope :by_name,        as: :name
+  has_scope :by_rating,      as: :rating
+  has_scope :by_ingredients, as: :ingredients, type: :array
+  has_scope :by_categories,  as: :categories, type: :array
+
+  helper_method :collection
+
+  def index
+  end
+
+  private
+
+  def collection
+    @collection ||= cocktails_filter.results
+  end
+
+  def cocktails_filter
+    @cocktails_filter ||= apply_scopes(filter)
+  end
+
+  def filter
+    @filter ||= ShakenNotStirred.new
+  end
+end
+```
+
+## 3. Response
 The response format is JSON by default. Results are provided as an array of objects with the following structure:
 
 <div align="left">
@@ -255,10 +287,10 @@ filter.results
 ]
 ```
 
-## 3. Development
+## 4. Development
 
 Questions or problems? Please post them on the [issue tracker](https://github.com/juanroldan1989/shaken_not_stirred/issues). You can contribute changes by forking the project and submitting a pull request. You can ensure the tests are passing by running `bundle` and `rake`.
 
-## 4. Copyright
+## 5. Copyright
 
 Copyright © 2020 Juan Roldan. See [LICENSE.txt](https://github.com/juanroldan1989/shaken_not_stirred/blob/master/LICENSE.txt) for further details.
