@@ -1,6 +1,4 @@
-<div align="left">
-  <a href="https://github.com/juanroldan1989/shaken_not_stirred"><img src="https://static1.fashionbeans.com/wp-content/uploads/2019/03/martinimain.jpg" alt="shaken_not_stirred ruby logo" /></a>
-</div>
+<img src="https://media.giphy.com/media/zd1VtTAjLRHNe/giphy.gif" width="100%" />
 
 # ShakenNotStirred
 [![Gem Version](https://badge.fury.io/rb/shaken_not_stirred.svg)](https://badge.fury.io/rb/shaken_not_stirred)
@@ -10,7 +8,7 @@
 <!-- [![Build Status](https://travis-ci.com/juanroldan1989/shaken_not_stirred.svg?branch=master)](https://travis-ci.com/juanroldan1989/shaken_not_stirred) -->
 <!-- [![Coverage Status](https://coveralls.io/repos/github/juanroldan1989/shaken_not_stirred/badge.svg?branch=master)](https://coveralls.io/github/juanroldan1989/shaken_not_stirred?branch=master) -->
 
-Ruby client for [Cocktails API](https://juanroldan.com.ar/cocktails-api-landing)
+Ruby client for [Cocktails API](https://cocktailsapi.xyz)
 
 <!-- API Docs [here](https://juanroldan.com.ar/cocktails-api-docs) -->
 
@@ -38,7 +36,7 @@ gem "shaken_not_stirred", "~> 0.0.7"
 
 ## 1. Usage
 
-All `Free`, `Basic`, `Advanced` and `Premium` plans available [here](https://juanroldan.com.ar/cocktails-api-landing)
+All `Free`, `Basic`, `Advanced` and `Premium` plans available [here](https://cocktailsapi.xyz)
 
 Once completed this quick [form](https://docs.google.com/forms/d/12Ofvx3wg3fIwiS2u41JAv5CNtIExjenU7KVpqyIwMi8/viewform) the API Key will be sent to you by Juan Roldan (`juanroldan1989@gmail.com`)
 
@@ -61,12 +59,16 @@ filter = ShakenNotStirred.new
 then call API methods, for instance:
 
 
-### `Cocktails` endpoint
+### `Cocktails` endpoint (Library vs. REST)
 
 To fetch cocktails with `ginger` on its name:
 
 ```ruby
 filter.by_name("ginger")
+```
+
+```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?name=ginger" -H "Authorization: Token token=your_api_key"
 ```
 
 To fetch cocktails with `amazing` on its description:
@@ -75,10 +77,24 @@ To fetch cocktails with `amazing` on its description:
 filter.by_description("amazing")
 ```
 
+```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?description=amazing" -H "Authorization: Token token=your_api_key"
+```
+
 To fetch cocktails with `rum` on their ingredients:
 
 ```ruby
 filter.by_ingredients(["rum"])
+```
+
+```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?ingredients[]=rum" -H "Authorization: Token token=your_api_key"
+
+# cocktails with `rum` OR `gin` within their ingredients
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?ingredients[]=rum,gin" -H "Authorization: Token token=your_api_key"
+
+# cocktails with `tequila` AND `vodka` within their ingredients
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?ingredients_only[]=tequila,vodka" -H "Authorization: Token token=your_api_key"
 ```
 
 To fetch cocktails with `classic` on their categories:
@@ -87,33 +103,61 @@ To fetch cocktails with `classic` on their categories:
 filter.by_categories(["classic"])
 ```
 
+```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?categories[]=classic" -H "Authorization: Token token=your_api_key"
+
+# cocktails with `drinks` OR `inventions` within their categories
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?categories[]=drinks,inventions" -H "Authorization: Token token=your_api_key"
+
+# cocktails with `inventions` AND `brandy` within their categories
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?categories_only[]=inventions,brandy" -H "Authorization: Token token=your_api_key"
+```
+
 To fetch cocktails with `dinner` on their timing:
 
 ```ruby
 filter.by_timing("dinner")
 ```
 
+```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?timing=dinner" -H "Authorization: Token token=your_api_key"
+```
+
 To fetch cocktails that belong to the `International Bartender Association`:
 
 ```ruby
 filter.by_iba("true")
+# OR
 filter.by_iba(true)
+```
+
+```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?iba=true" -H "Authorization: Token token=your_api_key"
 ```
 
 To fetch cocktails that don't belong to the `International Bartender Association`:
 
 ```ruby
 filter.by_iba("false")
+# OR 
 filter.by_iba(false)
+```
+
+```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?iba=false" -H "Authorization: Token token=your_api_key"
 ```
 
 To fetch cocktails that contain `ice` on many fields:
 
 ```ruby
 filter.by_multiple("ice")
-
-# fields included are: `name`, `description`, `ingredients`, `categories` & `timing`
 ```
+
+```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?multiple=ice" -H "Authorization: Token token=your_api_key"
+```
+
+PS: fields searched by are: `name`, `description`, `ingredients`, `categories` & `timing`.
 
 To fetch cocktails randomnly:
 
@@ -129,6 +173,17 @@ filter.by_random(2)
 filter.by_random(n)
 ```
 
+```ruby
+# get a random cocktail on every request
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?random=1" -H "Authorization: Token token=your_api_key"
+
+# get 2 random cocktails on every request
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?random=2" -H "Authorization: Token token=your_api_key"
+
+# get N random cocktails on every request
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?random=n" -H "Authorization: Token token=your_api_key"
+```
+
 #### All filters are chainable
 
 To fetch cocktails that:
@@ -141,14 +196,16 @@ To fetch cocktails that:
 filter = ShakenNotStirred.new
 
 filter.by_categories(["classic"]).by_iba(true).by_ingredients(["rum"])
-
-filter.results
 ```
 
 Once applied all the filters you need, make the API call to get the quotes:
 
 ```ruby
 filter.results
+```
+
+```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?categories[]=classic&iba=true&ingredients[]=rum" -H "Authorization: Token token=your_api_key"
 ```
 
 ### `Categories` endpoint
@@ -163,6 +220,10 @@ filter.categories
 filter.results
 ```
 
+```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/categories" -H "Authorization: Token token=your_api_key"
+```
+
 ### `Ingredients` endpoint
 
 Cocktails API also provides an endpoint with all `ingredients` available to search by.
@@ -175,9 +236,17 @@ filter.ingredients
 filter.results
 ```
 
+```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/ingredients" -H "Authorization: Token token=your_api_key"
+```
+
 ### Pagination
 
-Pagination behavior is present in all 3 endpoints: `cocktails`, `categories` and `ingredients`.
+Results returned per page: 20.
+
+Pagination behavior is present in all 3 endpoints
+
+#### Cocktails
 
 ```ruby
 filter = ShakenNotStirred.new
@@ -189,6 +258,13 @@ filter.results
 ```
 
 ```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?page=2" -H "Authorization: Token token=your_api_key"
+```
+
+
+#### Categories
+
+```ruby
 filter = ShakenNotStirred.new
 
 # fetch `category` results from page `4`
@@ -198,12 +274,22 @@ filter.results
 ```
 
 ```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/categories?page=4" -H "Authorization: Token token=your_api_key"
+```
+
+#### Ingredients
+
+```ruby
 filter = ShakenNotStirred.new
 
 # fetch `ingredient` results from page `5`
 filter.ingredients.by_page(5)
 
 filter.results
+```
+
+```ruby
+$ curl "http://api-cocktails.herokuapp.com/api/v1/ingredients?page=5" -H "Authorization: Token token=your_api_key"
 ```
 
 ## 2. Implementation
