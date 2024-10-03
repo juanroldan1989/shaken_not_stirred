@@ -2,19 +2,26 @@
 
 # ShakenNotStirred
 
-[![Gem Version](https://badge.fury.io/rb/shaken_not_stirred.svg)](https://badge.fury.io/rb/shaken_not_stirred)
-[![Code Climate](https://codeclimate.com/github/juanroldan1989/shaken_not_stirred/badges/gpa.svg)](https://codeclimate.com/github/juanroldan1989/shaken_not_stirred)
-[![Downloads](http://ruby-gem-downloads-badge.herokuapp.com/shaken_not_stirred/0.0.7?type=total&color=brightgreen)](https://rubygems.org/gems/shaken_not_stirred)
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-
-<!-- [![Build Status](https://travis-ci.com/juanroldan1989/shaken_not_stirred.svg?branch=master)](https://travis-ci.com/juanroldan1989/shaken_not_stirred) -->
-<!-- [![Coverage Status](https://coveralls.io/repos/github/juanroldan1989/shaken_not_stirred/badge.svg?branch=master)](https://coveralls.io/github/juanroldan1989/shaken_not_stirred?branch=master) -->
-
 Ruby client for [Cocktails API](https://cocktailsapi.xyz)
 
-<!-- API Docs [here](https://juanroldan.com.ar/cocktails-api-docs) -->
+<!-- ![https://github.com/juanroldan1989/shaken_not_stirred/pulls](https://img.shields.io/github/issues-pr-raw/juanroldan1989/shaken_not_stirred.svg?style=flat-square&logo=github&logoColor=white) -->
 
-## Features
+![https://github.com/juanroldan1989/shaken_not_stirred/commits/main](https://img.shields.io/github/last-commit/juanroldan1989/shaken_not_stirred.svg?style=flat-square&logo=github&logoColor=white)
+![https://github.com/juanroldan1989/shaken_not_stirred/issues](https://img.shields.io/github/issues-raw/juanroldan1989/shaken_not_stirred.svg?style=flat-square&logo=github&logoColor=white)
+[![Gem Version](https://badge.fury.io/rb/shaken_not_stirred.svg)](https://badge.fury.io/rb/shaken_not_stirred)
+[![Code Climate](https://codeclimate.com/github/juanroldan1989/shaken_not_stirred/badges/gpa.svg)](https://codeclimate.com/github/juanroldan1989/shaken_not_stirred)
+![Downloads](https://img.shields.io/gem/dv/shaken_not_stirred/0.0.7)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
+<p align="left">
+  <a href="#features">Features</a> •
+  <a href="#setup">Setup</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#implementation">Implementation</a> •
+  <a href="#contribute">Contribute</a>
+</p>
+
+# Features
 
 - Providing developers with THE best dataset of cocktails & drinks from all over the world.
 - Search through well known cocktails by `name`, `description`, `ingredients`, `categories`, `timing`, `rating` and more.
@@ -22,7 +29,7 @@ Ruby client for [Cocktails API](https://cocktailsapi.xyz)
 - URL generation process fully tested when applying filters for each request.
 - API integration tests recorded and fully tested using [VCR](https://github.com/vcr/vcr) gem: fast tests (first HTTP request is real and it's response is stored for future runs), deterministic (tests will continue to pass, even if you are offline, or API goes down for maintenance) and accurate (responses will contain the same headers and body you get from a real request).
 
-## Installation
+# Setup
 
 Install the gem by running:
 
@@ -30,13 +37,13 @@ Install the gem by running:
 gem install shaken_not_stirred
 ```
 
-or put it in your Gemfile and run `bundle install`:
+or add it to your Gemfile and run `bundle install`:
 
 ```ruby
 gem "shaken_not_stirred", "~> 0.0.7"
 ```
 
-## 1. Usage
+# Usage
 
 All `Free`, `Basic`, `Advanced` and `Premium` plans available [here](https://cocktailsapi.xyz)
 
@@ -60,7 +67,7 @@ filter = ShakenNotStirred.new
 
 then call API methods, for instance:
 
-### `Cocktails` endpoint (Library vs. REST)
+## `Cocktails` endpoint (Library vs. REST)
 
 To fetch cocktails with `ginger` on its name:
 
@@ -185,7 +192,7 @@ $ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?random=2" -H "Author
 $ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?random=n" -H "Authorization: Token token=your_api_key"
 ```
 
-#### All filters are chainable
+### All filters are chainable
 
 To fetch cocktails that:
 
@@ -209,7 +216,7 @@ filter.results
 $ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?categories[]=classic&iba=true&ingredients[]=rum" -H "Authorization: Token token=your_api_key"
 ```
 
-### `Categories` endpoint
+## `Categories` endpoint
 
 Cocktails API also provides an endpoint with all `categories` available to search by.
 
@@ -225,7 +232,7 @@ filter.results
 $ curl "http://api-cocktails.herokuapp.com/api/v1/categories" -H "Authorization: Token token=your_api_key"
 ```
 
-### `Ingredients` endpoint
+## `Ingredients` endpoint
 
 Cocktails API also provides an endpoint with all `ingredients` available to search by.
 
@@ -241,13 +248,13 @@ filter.results
 $ curl "http://api-cocktails.herokuapp.com/api/v1/ingredients" -H "Authorization: Token token=your_api_key"
 ```
 
-### Pagination
+## Pagination
 
 Results returned per page: 20.
 
 Pagination behavior is present in all 3 endpoints
 
-#### Cocktails
+### Cocktails
 
 ```ruby
 filter = ShakenNotStirred.new
@@ -262,7 +269,7 @@ filter.results
 $ curl "http://api-cocktails.herokuapp.com/api/v1/cocktails?page=2" -H "Authorization: Token token=your_api_key"
 ```
 
-#### Categories
+### Categories
 
 ```ruby
 filter = ShakenNotStirred.new
@@ -277,7 +284,7 @@ filter.results
 $ curl "http://api-cocktails.herokuapp.com/api/v1/categories?page=4" -H "Authorization: Token token=your_api_key"
 ```
 
-#### Ingredients
+### Ingredients
 
 ```ruby
 filter = ShakenNotStirred.new
@@ -292,7 +299,7 @@ filter.results
 $ curl "http://api-cocktails.herokuapp.com/api/v1/ingredients?page=5" -H "Authorization: Token token=your_api_key"
 ```
 
-## 2. Implementation
+# Implementation
 
 Setting up this gem to work is really easy. Even more if you use `has_scope` gem:
 
@@ -325,7 +332,7 @@ class CocktailsController < ApplicationController
 end
 ```
 
-## 3. Response
+# API Response
 
 The response format is JSON by default. Results are provided as an array of objects with the following structure:
 
@@ -375,10 +382,16 @@ filter.results
 ]
 ```
 
-## 4. Development
+# Contribute
 
-Questions or problems? Please post them on the [issue tracker](https://github.com/juanroldan1989/shaken_not_stirred/issues). You can contribute changes by forking the project and submitting a pull request. You can ensure the tests are passing by running `bundle` and `rake`.
+Got **something interesting** you'd like to **add or change**? Please feel free to [Open a Pull Request](https://github.com/juanroldan1989/shaken_not_stirred/pulls)
 
-## 5. Copyright
+If you want to say **thank you** and/or support the active development of `Shaken Not Stirred`:
 
-Copyright © 2023 Juan Roldan. See [LICENSE.txt](https://github.com/juanroldan1989/shaken_not_stirred/blob/master/LICENSE.txt) for further details.
+1. Add a [GitHub Star](https://github.com/juanroldan1989/shaken_not_stirred/stargazers) to the project.
+2. Tweet about the project [on your Twitter](https://twitter.com/intent/tweet?text=Hey%20I've%20just%20discovered%20this%20cool%20app%20on%20Github%20by%20@JhonnyDaNiro%20-%20Deploy%20ECS%20Blueprint&url=https://github.com/juanroldan1989/shaken_not_stirred/&via=Github).
+3. Write a review or tutorial on [Medium](https://medium.com), [Dev.to](https://dev.to) or personal blog.
+
+# Copyright
+
+Copyright © 2024 Juan Roldan. See [LICENSE.txt](https://github.com/juanroldan1989/shaken_not_stirred/blob/master/LICENSE.txt) for further details.
